@@ -1,0 +1,353 @@
+1. Einführung in die Mathematik von Greet
+Greet ist eine Programmiersprache, die Elemente sowohl von C++ als auch von Python kombiniert, um die Vorteile beider Sprachen zu nutzen. In diesem Abschnitt werden wir die mathematischen Grundlagen und Formeln untersuchen, die in Greet verwendet werden.
+
+2. Grundlegende Mathematische Operationen
+2.1 Arithmetische Operationen
+Die grundlegenden arithmetischen Operationen in Greet umfassen Addition, Subtraktion, Multiplikation und Division. Diese Operationen werden durch die entsprechenden Operatoren dargestellt:
+
+Addition: 
+a
++
+b
+a+b
+Subtraktion: 
+a
+−
+b
+a−b
+Multiplikation: 
+a
+×
+b
+a×b oder 
+a
+∗
+b
+a∗b
+Division: 
+a
+÷
+b
+a÷b oder 
+a
+/
+b
+a/b
+Beispiel:
+
+greet
+a = 10
+b = 5
+sum = a + b  # 15
+difference = a - b  # 5
+product = a * b  # 50
+quotient = a / b  # 2.0
+2.2 Exponentiation
+Die Exponentiation in Greet wird durch den Operator ** dargestellt. Die mathematische Formel für die Exponentiation ist:
+
+a
+b
+a 
+b
+ 
+
+Beispiel:
+
+greet
+base = 2
+exponent = 3
+result = base ** exponent  # 8
+3. Funktionen und Ableitungen
+3.1 Definition einer Funktion
+In Greet können Funktionen definiert werden, die mathematische Operationen kapseln. Die allgemeine Syntax für die Definition einer Funktion ist:
+
+greet
+def function_name(parameters) -> return_type:
+    # Funktionskörper
+Beispiel:
+
+greet
+def quadratic(x: float) -> float:
+    return x**2
+3.2 Ableitungen
+Die Ableitung einer Funktion 
+f
+(
+x
+)
+f(x) an der Stelle 
+x
+x wird in Greet durch die Verwendung von Bibliotheken wie scipy berechnet. Die Ableitung einer Funktion 
+f
+(
+x
+)
+f(x) ist definiert als:
+
+f
+′
+(
+x
+)
+=
+lim
+⁡
+h
+→
+0
+f
+(
+x
++
+h
+)
+−
+f
+(
+x
+)
+h
+f 
+′
+ (x)=lim 
+h→0
+​
+  
+h
+f(x+h)−f(x)
+​
+ 
+
+Beispiel:
+
+greet
+from scipy.misc import derivative
+
+def f(x):
+    return x**2
+
+# Erste Ableitung von f(x) = x^2 an x = 2
+df = derivative(f, 2.0, dx=1e-6)
+print(df)  # Ausgabe: 4.0
+4. Integration
+4.1 Bestimmtes Integral
+Das bestimmte Integral einer Funktion 
+f
+(
+x
+)
+f(x) von 
+a
+a bis 
+b
+b wird in Greet durch die Verwendung der quad Funktion aus der scipy.integrate Bibliothek berechnet. Die mathematische Formel für das bestimmte Integral ist:
+
+∫
+a
+b
+f
+(
+x
+)
+ 
+d
+x
+∫ 
+a
+b
+​
+ f(x)dx
+
+Beispiel:
+
+greet
+from scipy.integrate import quad
+
+def f(x):
+    return x**2
+
+a, b = 0, 2
+result, error = quad(f, a, b)
+print(result)  # Ausgabe: 2.6666666666666665
+5. Lineare Algebra
+5.1 Vektoroperationen
+Greet unterstützt Vektoroperationen durch die Verwendung von Bibliotheken wie numpy. Die grundlegenden Vektoroperationen umfassen Addition, Subtraktion, Skalarmultiplikation und Skalarprodukt.
+
+Vektoraddition: 
+a
++
+b
+a+b
+Vektorsubtraktion: 
+a
+−
+b
+a−b
+Skalarmultiplikation: 
+c
+a
+ca
+Skalarprodukt: 
+a
+⋅
+b
+a⋅b
+Beispiel:
+
+greet
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+c = 2
+
+vector_sum = a + b  # [5, 7, 9]
+vector_diff = a - b  # [-3, -3, -3]
+scalar_mult = c * a  # [2, 4, 6]
+dot_product = np.dot(a, b)  # 32
+5.2 Matrixoperationen
+Greet unterstützt auch Matrixoperationen durch numpy. Die grundlegenden Matrixoperationen umfassen Addition, Subtraktion, Multiplikation und Inversion.
+
+Matrixaddition: 
+A
++
+B
+A+B
+Matrixtraktion: 
+A
+−
+B
+A−B
+Matrixmultiplikation: 
+A
+B
+AB
+Matrixinversion: 
+A
+−
+1
+A 
+−1
+ 
+Beispiel:
+
+greet
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = np.array([[9, 10], [11, 12]])
+
+matrix_sum = A + B  # [[6, 8], [10, 12]]
+matrix_diff = A - B  # [[-4, -4], [-4, -4]]
+matrix_mult = np.dot(A, B)  # [[23, 28], [53, 68]]
+matrix_inv = np.linalg.inv(C)  # [[-0.08333333, 0.08333333], [0.08333333, -0.08333333]]
+6. Differentialgleichungen
+6.1 Lösung von Differentialgleichungen
+Greet unterstützt die Lösung von Differentialgleichungen durch die Verwendung der odeint Funktion aus der scipy.integrate Bibliothek. Die allgemeine Form einer Differentialgleichung erster Ordnung ist:
+
+d
+y
+d
+t
+=
+f
+(
+t
+,
+y
+)
+dt
+dy
+​
+ =f(t,y)
+
+Beispiel:
+
+greet
+from scipy.integrate import odeint
+import numpy as np
+
+def dydt(y, t):
+    k, n = 0.3, 1.0
+    dydt = -k * y**n
+    return dydt
+
+y0 = 10
+t = np.linspace(0, 20, 100)
+solution = odeint(dydt, y0, t)
+
+import matplotlib.pyplot as plt
+
+plt.plot(t, solution)
+plt.xlabel('Zeit t')
+plt.ylabel('Konzentration y(t)')
+plt.title('Lösung der Differentialgleichung')
+plt.grid(True)
+plt.show()
+7. Fourier-Transformation
+7.1 Fourier-Transformation
+Die Fourier-Transformation ist ein leistungsstarkes Werkzeug zur Analyse periodischer Signale. In Greet kann die Fourier-Transformation durch die Verwendung der fft Funktion aus der scipy.fft Bibliothek berechnet werden. Die Fourier-Transformation einer Funktion 
+f
+(
+t
+)
+f(t) ist definiert als:
+
+F
+(
+ω
+)
+=
+∫
+−
+∞
+∞
+f
+(
+t
+)
+e
+−
+i
+ω
+t
+ 
+d
+t
+F(ω)=∫ 
+−∞
+∞
+​
+ f(t)e 
+−iωt
+ dt
+
+Beispiel:
+
+greet
+import numpy as np
+from scipy.fft import fft
+
+t = np.linspace(0, 1, 500, endpoint=False)
+freqs = [5, 20, 50]
+signal = np.sum([np.sin(2 * np.pi * freq * t) for freq in freqs], axis=0)
+
+fft_values = fft(signal)
+
+plt.figure(figsize=(12, 6))
+
+plt.subplot(2, 1, 1)
+plt.plot(t, signal)
+plt.title('Original Signal')
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+
+plt.subplot(2, 1, 2)
+plt.plot(np.fft.fftfreq(len(t), d=t[1]-t[0]), np.abs(fft_values))
+plt.title('Fourier-Transformation')
+plt.xlabel('Frequenz')
+plt.ylabel('Amplitude')
+
+plt.tight_layout()
+plt.show()
+8. Schlusswort
+Greet bietet eine umfassende und leistungsstarke Umgebung für mathematische Berechnungen und wissenschaftliche Anwendungen. Durch die Kombination von Python-ähnlicher Syntax und C++-ähnlicher Leistung ermöglicht Greet Entwicklern, komplexe mathematische Modelle effizient zu implementieren und zu analysieren. Die Sprache unterstützt eine Vielzahl von mathematischen Operationen, von grundlegenden arithmetischen Berechnungen bis hin zu fortgeschrittenen Themen wie Differentialgleichungen und Fourier-Transformationen. Mit ihrer Flexibilität und Leistung ist Greet eine ideale Wahl für Wissenschaftler und Ingenieure, die nach einer leistungsstarken und benutzerfreundlichen Programmiersprache suchen.
