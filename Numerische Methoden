@@ -1,0 +1,243 @@
+1. Numerische Methoden
+1.1 Numerische Integration
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+from scipy.integrate import quad
+
+# Definiere die Funktion, die integriert werden soll
+def f(x):
+    return np.sin(x)
+
+# Definiere den Integrationsbereich
+a, b = 0, np.pi
+
+# Führe die numerische Integration durch
+result, error = quad(f, a, b)
+
+print(f"Das Integral von sin(x) von {a} bis {b} ist etwa {result} mit einer Fehlerschätzung von {error}")
+1.2 Numerische Differenzierung
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+from scipy.misc import derivative
+
+# Definiere die Funktion, deren Ableitung berechnet werden soll
+def g(x):
+    return x**2
+
+# Berechne die erste Ableitung
+dg = derivative(g, 2.0, dx=1e-6)
+
+print(f"Die erste Ableitung von g(x) = x^2 an x = 2.0 ist etwa {dg}")
+2. Wissenschaftliche Berechnungen
+2.1 Lösung von Differentialgleichungen
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+from scipy.integrate import odeint
+
+# Definiere das Differentialgleichungssystem
+def dydt(y, t):
+    k, n = 0.3, 1.0
+    dydt = -k * y**n
+    return dydt
+
+# Initialbedingungen
+y0 = 10
+
+# Zeitpunkte
+t = np.linspace(0, 20, 100)
+
+# Löse die Differentialgleichung
+solution = odeint(dydt, y0, t)
+
+# Plotte die Lösung
+import matplotlib.pyplot as plt
+
+plt.plot(t, solution)
+plt.xlabel('Zeit t')
+plt.ylabel('Konzentration y(t)')
+plt.title('Lösung der Differentialgleichung')
+plt.grid(True)
+plt.show()
+2.2 Fourier-Transformation
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+from scipy.fft import fft
+
+# Erzeuge ein Signal
+t = np.linspace(0, 1, 500, endpoint=False)
+freqs = [5, 20, 50]
+signal = np.sum([np.sin(2 * np.pi * freq * t) for freq in freqs], axis=0)
+
+# Führe die Fourier-Transformation durch
+fft_values = fft(signal)
+
+# Plotte das ursprüngliche Signal und die Fourier-Transformation
+plt.figure(figsize=(12, 6))
+
+plt.subplot(2, 1, 1)
+plt.plot(t, signal)
+plt.title('Original Signal')
+plt.xlabel('Zeit')
+plt.ylabel('Amplitude')
+
+plt.subplot(2, 1, 2)
+plt.plot(np.fft.fftfreq(len(t), d=t[1]-t[0]), np.abs(fft_values))
+plt.title('Fourier-Transformation')
+plt.xlabel('Frequenz')
+plt.ylabel('Amplitude')
+
+plt.tight_layout()
+plt.show()
+3. Datenanalyse
+3.1 Statistische Analyse
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+
+# Erzeuge Beispieldaten
+data = np.random.normal(loc=0, scale=1, size=1000)
+
+# Berechne statistische Kennzahlen
+mean = np.mean(data)
+median = np.median(data)
+std_dev = np.std(data)
+variance = np.var(data)
+skewness = stats.skew(data)
+kurtosis = stats.kurtosis(data)
+
+print(f"Mittelwert: {mean}")
+print(f"Median: {median}")
+print(f"Standardabweichung: {std_dev}")
+print(f"Varianz: {variance}")
+print(f"Schiefe: {skewness}")
+print(f"Kurtosis: {kurtosis}")
+3.2 Korrelationsanalyse
+greet
+# Importiere die notwendigen Bibliotheken
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Lade Beispieldaten
+data = pd.read_csv("example_data.csv")
+
+# Berechne die Korrelationsmatrix
+correlation_matrix = data.corr()
+
+# Plotte die Korrelationsmatrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Korrelationsmatrix')
+plt.show()
+4. Maschinelles Lernen
+4.1 Lineare Regression
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Lade Beispieldaten
+data = pd.read_csv("example_data.csv")
+
+# Vorbereiten der Daten
+X = data[['feature1', 'feature2']]
+y = data['target']
+
+# Aufteilen der Daten in Trainings- und Testsets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Erstellen und Trainieren des Modells
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Vorhersagen
+y_pred = model.predict(X_test)
+
+# Bewertung des Modells
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Mittlerer quadratischer Fehler: {mse}")
+print(f"R^2-Wert: {r2}")
+4.2 K-Means-Clustering
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+import pandas as pd
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+# Lade Beispieldaten
+data = pd.read_csv("example_data.csv")
+
+# Vorbereiten der Daten
+X = data[['feature1', 'feature2']]
+
+# Erstellen und Anwenden des K-Means-Modells
+kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans.fit(X)
+
+# Hinzufügen der Cluster-Labels zu den Daten
+data['cluster'] = kmeans.labels_
+
+# Plotte die Cluster
+plt.figure(figsize=(8, 6))
+for cluster in range(3):
+    cluster_data = data[data['cluster'] == cluster]
+    plt.scatter(cluster_data['feature1'], cluster_data['feature2'], label=f'Cluster {cluster}')
+
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('K-Means-Clustering')
+plt.legend()
+plt.show()
+5. Visualisierung
+5.1 3D-Plot
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Erzeuge Beispieldaten
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+x, y = np.meshgrid(x, y)
+z = np.sin(np.sqrt(x**2 + y**2))
+
+# Erstelle einen 3D-Plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z, cmap='viridis')
+
+ax.set_xlabel('X-Achse')
+ax.set_ylabel('Y-Achse')
+ax.set_zlabel('Z-Achse')
+ax.set_title('3D-Plot einer Sinusfunktion')
+
+plt.show()
+5.2 Heatmap
+greet
+# Importiere die notwendigen Bibliotheken
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Erzeuge Beispieldaten
+data = np.random.rand(10, 12)
+
+# Erstelle eine Heatmap
+plt.figure(figsize=(10, 8))
+sns.heatmap(data, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Heatmap')
+plt.show()
+Diese Beispiele zeigen, wie ein Wissenschaftler Greet-Code schreiben könnte, um wissenschaftliche Berechnungen, Datenanalyse und Visualisierung durchzuführen. Greet bietet die Flexibilität und Einfachheit von Python kombiniert mit der Leistung und Kontrolle von C++, was es zu einer idealen Wahl für wissenschaftliche Anwendungen macht.
