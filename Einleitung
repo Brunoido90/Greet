@@ -1,5 +1,7 @@
 Greet: Die Programmiersprache der Zukunft
+
 1. Einleitung
+
 1.1 Was ist Greet?
 
 Greet ist eine neu entwickelte Programmiersprache, die Elemente sowohl von C++ als auch von Python kombiniert, um die Vorteile beider Sprachen zu nutzen. Die Motivation hinter der Entwicklung von Greet war es, eine Sprache zu schaffen, die die Leistung und Feinsteuerung von C++ mit der Einfachheit und Lesbarkeit von Python verbindet. Dies macht Greet besonders attraktiv für Entwickler, die nach einer Balance zwischen Effizienz und Benutzerfreundlichkeit suchen.
@@ -11,126 +13,138 @@ Die Entwicklung von Greet begann aus der Notwendigkeit heraus, eine Programmiers
 1.3 Zielgruppe und Anwendungsbereiche
 
 Greet richtet sich an eine breite Zielgruppe von Entwicklern, einschließlich:
+- Spieleentwickler, die die Leistung von C++ benötigen, aber die Entwicklungsgeschwindigkeit von Python schätzen.
+- Systemprogrammierer, die präzise Kontrolle über Hardware und Systemressourcen benötigen.
+- Datenwissenschaftler, die leistungsstarke Datenverarbeitung mit der Flexibilität von Python kombinieren möchten.
+- Entwickler, die an Echtzeitanwendungen arbeiten, wie z.B. Finanzsysteme oder eingebettete Systeme.
 
-Spieleentwickler, die die Leistung von C++ benötigen, aber die Entwicklungsgeschwindigkeit von Python schätzen.
-Systemprogrammierer, die präzise Kontrolle über Hardware und Systemressourcen benötigen.
-Datenwissenschaftler, die leistungsstarke Datenverarbeitung mit der Flexibilität von Python kombinieren möchten.
-Entwickler, die an Echtzeitanwendungen arbeiten, wie z.B. Finanzsysteme oder eingebettete Systeme.
 2. Grundlagen von Greet
+
 2.1 Erste Schritte mit Greet
 
 Bevor du mit der Programmierung in Greet beginnen kannst, musst du sicherstellen, dass du die notwendigen Tools installiert hast. Greet benötigt einen Compiler, der den Quellcode in ausführbaren Maschinencode umwandelt. Der offizielle Greet-Compiler ist open-source und steht auf der offiziellen Greet-Website zum Download zur Verfügung.
 
 2.2 Installationsanleitung
 
-Herunterladen des Compilers:
-Besuche die offizielle Greet-Website und lade den Compiler für dein Betriebssystem herunter.
+1. Herunterladen des Compilers: Besuche die offizielle Greet-Website und lade den Compiler für dein Betriebssystem herunter.
 
-Installieren des Compilers:
-Führe die Installationsanweisungen für dein Betriebssystem durch. Für Windows und macOS ist dies in der Regel ein einfacher Installationsassistent. Für Linux kannst du den Compiler über den Paketmanager installieren oder die Binärdatei herunterladen und manuell installieren.
+2. Installieren des Compilers: Führe die Installationsanweisungen für dein Betriebssystem durch. Für Windows und macOS ist dies in der Regel ein einfacher Installationsassistent. Für Linux kannst du den Compiler über den Paketmanager installieren oder die Binärdatei herunterladen und manuell installieren.
 
-Verifizieren der Installation:
-Öffne ein Terminal oder eine Eingabeaufforderung und gib greetc --version ein. Wenn die Installation erfolgreich war, sollte die Version des Greet-Compilers angezeigt werden.
+3. Verifizieren der Installation: Öffne ein Terminal oder eine Eingabeaufforderung und gib `greetc --version` ein. Wenn die Installation erfolgreich war, sollte die Version des Greet-Compilers angezeigt werden.
 
 2.3 Hello World!
 
 Hier ist ein einfaches "Hello World!"-Programm in Greet:
 
-greet
+```greet
 print("Hello, World!")
-Speichere diesen Code in einer Datei mit der Endung .grt, z.B. hello_world.grt. Um das Programm zu kompilieren und auszuführen, öffne ein Terminal, navigiere zu dem Verzeichnis, in dem sich die Datei befindet, und führe die folgenden Befehle aus:
+```
 
-sh
+Speichere diesen Code in einer Datei mit der Endung `.grt`, z.B. `hello_world.grt`. Um das Programm zu kompilieren und auszuführen, öffne ein Terminal, navigiere zu dem Verzeichnis, in dem sich die Datei befindet, und führe die folgenden Befehle aus:
+
+```sh
 greetc hello_world.grt -o hello_world
 ./hello_world
-Dies kompiliert die hello_world.grt-Datei zu einer ausführbaren Datei namens hello_world und führt diese aus, wodurch "Hello, World!" auf dem Bildschirm angezeigt wird.
+```
+
+Dies kompiliert die `hello_world.grt`-Datei zu einer ausführbaren Datei namens `hello_world` und führt diese aus, wodurch "Hello, World!" auf dem Bildschirm angezeigt wird.
 
 3. Syntax und Semantik
+
 3.1 Grundlegende Syntax
 
 Die Syntax von Greet ist an Python angelehnt, um die Lesbarkeit und Schreibfreundlichkeit zu erhöhen. Hier sind einige grundlegende Syntaxregeln:
 
-Kommentare: Greet unterstützt Einzeilen- und Mehrzeilenkommentare.
+- Kommentare: Greet unterstützt Einzeilen- und Mehrzeilenkommentare.
+  ```greet
+  # Dies ist ein Einzeilenkommentar
 
-greet
-# Dies ist ein Einzeilenkommentar
+  """
+  Dies ist ein
+  Mehrzeilenkommentar
+  """
+  ```
 
-"""
-Dies ist ein
-Mehrzeilenkommentar
-"""
-Variablen: Variablen werden ohne Typdeklaration erstellt.
+- Variablen: Variablen werden ohne Typdeklaration erstellt.
+  ```greet
+  x = 10
+  y = "Hallo"
+  ```
 
-greet
-x = 10
-y = "Hallo"
-Arithmetische Operationen: Greet unterstützt die üblichen arithmetischen Operationen.
+- Arithmetische Operationen: Greet unterstützt die üblichen arithmetischen Operationen.
+  ```greet
+  a = 5 + 3  # Addition
+  b = 10 - 2  # Subtraktion
+  c = 4 * 2  # Multiplikation
+  d = 8 / 2  # Division
+  ```
 
-greet
-a = 5 + 3  # Addition
-b = 10 - 2  # Subtraktion
-c = 4 * 2  # Multiplikation
-d = 8 / 2  # Division
 3.2 Variablen und Datentypen
 
 Greet unterstützt eine Vielzahl von Datentypen, darunter:
+- Ganzzahlen: `int`
+- Fließkommazahlen: `float`
+- Zeichenketten: `str`
+- Boolean: `bool`
+- Listen: `list`
+- Wörterbücher: `dict`
 
-Ganzzahlen: int
-Fließkommazahlen: float
-Zeichenketten: str
-Boolean: bool
-Listen: list
-Wörterbücher: dict
 Beispiel:
-
-greet
+```greet
 x = 10  # Ganzzahl
 y = 3.14  # Fließkommazahl
 name = "Alice"  # Zeichenkette
 is_true = True  # Boolean
 numbers = [1, 2, 3]  # Liste
 person = {"name": "Alice", "age": 30}  # Wörterbuch
+```
+
 3.3 Kontrollstrukturen
 
 Greet bietet die üblichen Kontrollstrukturen wie Bedingungen und Schleifen.
 
-Bedingungen:
+- Bedingungen:
+  ```greet
+  if x > 0:
+      print("x ist positiv")
+  elif x == 0:
+      print("x ist null")
+  else:
+      print("x ist negativ")
+  ```
 
-greet
-if x > 0:
-    print("x ist positiv")
-elif x == 0:
-    print("x ist null")
-else:
-    print("x ist negativ")
-Schleifen:
+- Schleifen:
+  ```greet
+  # For-Schleife
+  for i in range(5):
+      print(i)
 
-greet
-# For-Schleife
-for i in range(5):
-    print(i)
+  # While-Schleife
+  i = 0
+  while i < 5:
+      print(i)
+      i += 1
+  ```
 
-# While-Schleife
-i = 0
-while i < 5:
-    print(i)
-    i += 1
 3.4 Funktionen und Methoden
 
-Funktionen in Greet werden mit dem Schlüsselwort def definiert.
+Funktionen in Greet werden mit dem Schlüsselwort `def` definiert.
 
-greet
+```greet
 def greet(name: str) -> str:
     return "Hallo, " + name + "!"
 
 message = greet("Alice")
 print(message)
+```
+
 4. Objektorientierte Programmierung in Greet
+
 4.1 Klassen und Objekte
 
 Greet unterstützt die objektorientierte Programmierung mit Klassen und Objekten.
 
-greet
+```greet
 class Person:
     def __init__(self, name: str, age: int):
         self.name = name
@@ -141,11 +155,13 @@ class Person:
 
 alice = Person("Alice", 30)
 print(alice.greet())
+```
+
 4.2 Vererbung
 
 Klassen in Greet können von anderen Klassen erben.
 
-greet
+```greet
 class Student(Person):
     def __init__(self, name: str, age: int, student_id: str):
         super().__init__(name, age)
@@ -157,11 +173,13 @@ class Student(Person):
 bob = Student("Bob", 20, "S12345")
 print(bob.greet())
 print(bob.show_id())
+```
+
 4.3 Polymorphismus
 
 Polymorphismus ermöglicht es, Methoden in verschiedenen Klassen mit dem gleichen Namen zu definieren.
 
-greet
+```greet
 class Animal:
     def sound(self) -> str:
         pass
@@ -181,11 +199,13 @@ dog = Dog()
 cat = Cat()
 print(animal_sound(dog))  # Ausgabe: Wuff
 print(animal_sound(cat))  # Ausgabe: Miau
+```
+
 4.4 Kapselung
 
 Kapselung in Greet wird durch das Verwenden von privaten und geschützten Attributen erreicht.
 
-greet
+```greet
 class BankAccount:
     def __init__(self, owner: str, balance: float):
         self.__owner = owner  # Privates Attribut
@@ -207,141 +227,164 @@ class BankAccount:
 account = BankAccount("Alice", 1000.0)
 account.deposit(500.0)
 print(account.get_balance())  # Ausgabe: 1500.0
+```
+
 5. Typensystem
+
 5.1 Statische Typisierung
 
 Greet unterstützt statische Typisierung, bei der die Datentypen bei der Kompilierung überprüft werden.
 
-greet
+```greet
 def add(a: int, b: int) -> int:
     return a + b
 
 result = add(5, 3)
 print(result)  # Ausgabe: 8
+```
+
 5.2 Dynamische Typisierung
 
 Greet bietet auch dynamische Typisierung, bei der die Datentypen zur Laufzeit überprüft werden.
 
-greet
+```greet
 def concat(a, b):
     return str(a) + str(b)
 
 result = concat(5, " Tage")
 print(result)  # Ausgabe: 5 Tage
+```
+
 5.3 Typkonvertierungen
 
 Typkonvertierungen in Greet können explizit oder implizit erfolgen.
 
-Explizite Konvertierung:
+- Explizite Konvertierung:
+  ```greet
+  x = "123"
+  y = int(x)  # Konvertiert die Zeichenkette in eine Ganzzahl
+  print(y)  # Ausgabe: 123
+  ```
 
-greet
-x = "123"
-y = int(x)  # Konvertiert die Zeichenkette in eine Ganzzahl
-print(y)  # Ausgabe: 123
-Implizite Konvertierung:
+- Implizite Konvertierung:
+  ```greet
+  a = 5
+  b = " Tage"
+  result = str(a) + b  # Implizite Konvertierung von a in eine Zeichenkette
+  print(result)  # Ausgabe: 5 Tage
+  ```
 
-greet
-a = 5
-b = " Tage"
-result = str(a) + b  # Implizite Konvertierung von a in eine Zeichenkette
-print(result)  # Ausgabe: 5 Tage
 6. Standardbibliothek
+
 6.1 Einleitung in die Standardbibliothek
 
 Die Standardbibliothek von Greet enthält eine Vielzahl von Modulen und Paketen, die nützliche Funktionen und Konstruktionen bieten. Diese Bibliotheken decken Bereiche wie Dateioperationen, Netzwerkprogrammierung, Datenverarbeitung und mehr ab.
 
 6.2 Nützliche Module und Pakete
 
-math: Bietet mathematische Funktionen.
+- math: Bietet mathematische Funktionen.
+  ```greet
+  import math
 
-greet
-import math
+  print(math.sqrt(16))  # Ausgabe: 4.0
+  ```
 
-print(math.sqrt(16))  # Ausgabe: 4.0
-datetime: Arbeits mit Datum und Uhrzeit.
+- datetime: Arbeits mit Datum und Uhrzeit.
+  ```greet
+  from datetime import datetime
 
-greet
-from datetime import datetime
+  now = datetime.now()
+  print(now)  # Ausgabe: Aktuelles Datum und Uhrzeit
+  ```
 
-now = datetime.now()
-print(now)  # Ausgabe: Aktuelles Datum und Uhrzeit
-os: Interagiert mit dem Betriebssystem.
+- os: Interagiert mit dem Betriebssystem.
+  ```greet
+  import os
 
-greet
-import os
+  print(os.getcwd())  # Ausgabe: Aktuelles Arbeitsverzeichnis
+  ```
 
-print(os.getcwd())  # Ausgabe: Aktuelles Arbeitsverzeichnis
 6.3 Erweiterungen und Drittanbieter-Bibliotheken
 
 Greet unterstützt die Integration von Drittanbieter-Bibliotheken, die in C++ oder Python geschrieben sind. Dies ermöglicht es Entwicklern, auf eine breite Palette von bestehenden Bibliotheken zuzugreifen.
 
 7. Leistung und Optimierung
+
 7.1 Leistungsmerkmale von Greet
 
 Greet ist so konzipiert, dass es die Leistung von C++ beibehält, insbesondere in Bereichen wie Spieleentwicklung, Systemprogrammierung und Echtzeitanwendungen. Dies wird durch die statische Typisierung und die Möglichkeit, direkt auf Hardware zuzugreifen, erreicht.
 
 7.2 Optimierungstechniken
 
-Profiling: Verwende Profiling-Tools, um Leistungsschwächen in deinem Code zu identifizieren.
-Algorithmusoptimierung: Wähle effiziente Algorithmen und Datenstrukturen.
-Parallele Verarbeitung: Nutze Mehrkernprozessoren durch parallele Verarbeitung.
+- Profiling: Verwende Profiling-Tools, um Leistungsschwächen in deinem Code zu identifizieren.
+- Algorithmusoptimierung: Wähle effiziente Algorithmen und Datenstrukturen.
+- Parallele Verarbeitung: Nutze Mehrkernprozessoren durch parallele Verarbeitung.
+
 7.3 Best Practices
 
-Code-Refaktorierung: Halte deinen Code sauber und effizient durch regelmäßige Refaktorierung.
-Modulare Programmierung: Teile deinen Code in Module auf, um die Wartbarkeit zu erhöhen.
-Dokumentation: Dokumentiere deinen Code gründlich, um die Zusammenarbeit und Wartbarkeit zu erleichtern.
+- Code-Refaktorierung: Halte deinen Code sauber und effizient durch regelmäßige Refaktorierung.
+- Modulare Programmierung: Teile deinen Code in Module auf, um die Wartbarkeit zu erhöhen.
+- Dokumentation: Dokumentiere deinen Code gründlich, um die Zusammenarbeit und Wartbarkeit zu erleichtern.
+
 8. Interoperabilität
+
 8.1 Interoperabilität mit C++
 
 Greet ermöglicht die Interoperabilität mit C++, was es Entwicklern ermöglicht, bestehende C++-Bibliotheken und -Codebasis zu nutzen.
 
-greet
+```greet
 # Greet-Code
 import cpp_module
 
 result = cpp_module.add(5, 3)
 print(result)  # Ausgabe: 8
+```
+
 8.2 Interoperabilität mit Python
 
 Greet unterstützt auch die Interoperabilität mit Python, was die Nutzung von Python-Bibliotheken und -Skripten in Greet-Programmen ermöglicht.
 
-greet
+```greet
 # Greet-Code
 import py_module
 
 result = py_module.greet("Alice")
 print(result)  # Ausgabe: Hallo, Alice
+```
+
 8.3 Nutzung von Drittanbieter-Bibliotheken
 
 Greet ermöglicht die Integration von Drittanbieter-Bibliotheken, die in C++ oder Python geschrieben sind. Dies erweitert die Funktionalität von Greet erheblich.
 
 9. Entwicklungsumgebung und Tools
+
 9.1 Entwicklungsumgebungen
 
 Greet kann in verschiedenen Entwicklungsumgebungen verwendet werden, darunter:
+- Visual Studio Code: Eine beliebte, plattformübergreifende Entwicklungsumgebung, die Erweiterungen für Greet unterstützt.
+- PyCharm: Eine leistungsstarke IDE, die sich gut für die Entwicklung in Greet eignet.
+- Eclipse: Eine flexible IDE, die durch Plugins für Greet erweitert werden kann.
 
-Visual Studio Code: Eine beliebte, plattformübergreifende Entwicklungsumgebung, die Erweiterungen für Greet unterstützt.
-PyCharm: Eine leistungsstarke IDE, die sich gut für die Entwicklung in Greet eignet.
-Eclipse: Eine flexible IDE, die durch Plugins für Greet erweitert werden kann.
 9.2 Debugging-Tools
 
 Greet bietet integrierte Debugging-Tools, die Entwicklern helfen, Fehler in ihrem Code zu finden und zu beheben. Diese Tools umfassen:
+- Breakpoints: Setze Breakpoints, um die Ausführung deines Codes an bestimmten Stellen zu unterbrechen.
+- Watches: Überwache Variablen und Ausdrücke, um deren Werte während der Ausführung zu verfolgen.
+- Stack Trace: Analysiere den Stack Trace, um die Ursache von Fehlern zu identifizieren.
 
-Breakpoints: Setze Breakpoints, um die Ausführung deines Codes an bestimmten Stellen zu unterbrechen.
-Watches: Überwache Variablen und Ausdrücke, um deren Werte während der Ausführung zu verfolgen.
-Stack Trace: Analysiere den Stack Trace, um die Ursache von Fehlern zu identifizieren.
 9.3 Build-Systeme
 
 Greet unterstützt verschiedene Build-Systeme, die den Kompilierungs- und Build-Prozess automatisieren. Beliebte Build-Systeme für Greet sind:
+- CMake: Ein plattformübergreifendes, open-source Build-System, das für seine Flexibilität und Leistungsfähigkeit bekannt ist.
+- Make: Ein traditionelles Build-System, das besonders auf Unix-ähnlichen Systemen weit verbreitet ist.
 
-CMake: Ein plattformübergreifendes, open-source Build-System, das für seine Flexibilität und Leistungsfähigkeit bekannt ist.
-Make: Ein traditionelles Build-System, das besonders auf Unix-ähnlichen Systemen weit verbreitet ist.
 10. Anwendungsbeispiele
+
 10.1 Spieleentwicklung
 
 Greet eignet sich hervorragend für die Spieleentwicklung, da es die Leistung von C++ mit der Einfachheit von Python kombiniert. Hier ist ein einfaches Beispiel für ein Spiel in Greet:
 
-greet
+```greet
 import random
 
 class Game:
@@ -367,11 +410,13 @@ class Game:
 
 game = Game()
 game.start()
+```
+
 10.2 Systemprogrammierung
 
 Greet ist auch für Systemprogrammierung geeignet, da es präzise Kontrolle über Hardware und Systemressourcen bietet. Hier ist ein Beispiel für ein einfaches Systemprogramm, das Dateien liest und schreibt:
 
-greet
+```greet
 import os
 
 def read_file(file_path: str) -> str:
@@ -390,11 +435,13 @@ print(content)
 
 new_content = "Hallo, Welt!"
 write_file(file_path, new_content)
+```
+
 10.3 Datenverarbeitung
 
 Greet bietet leistungsstarke Datenverarbeitungsfunktionen, die sowohl die Effizienz von C++ als auch die Flexibilität von Python nutzen. Hier ist ein Beispiel für die Verarbeitung großer Datensätze:
 
-greet
+```greet
 import pandas as pd
 
 # Lese eine CSV-Datei in einen DataFrame
@@ -409,14 +456,34 @@ print(df.describe())
 # Filtere Daten nach einer Bedingung
 filtered_df = df[df['age'] > 30]
 print(filtered_df)
+```
+
 11. Zukunft und Entwicklung von Greet
+
 11.1 Roadmap und geplante Funktionen
 
 Die Entwicklung von Greet ist ein kontinuierlicher Prozess. Einige der geplanten Funktionen und Verbesserungen umfassen:
+- Verbesserte Fehlerbehandlung: Einfacheres Debugging und detailliertere Fehlermeldungen.
+- Erweiterte Standardbibliothek: Neue Module und Pakete für spezifische Anwendungsbereiche.
+- Parallele Verarbeitung: Erweitertes Support für parallele und verteilte Verarbeitung.
 
-Verbesserte Fehlerbehandlung: Einfacheres Debugging und detailliertere Fehlermeldungen.
-Erweiterte Standardbibliothek: Neue Module und Pakete für spezifische Anwendungsbereiche.
-Parallele Verarbeitung: Erweitertes Support für parallele und verteilte Verarbeitung.
 11.2 Community und Unterstützung
 
-Greet profitiert von einer wachsenden Community von Entwicklern, die zur Weiterentwicklung der Sprache beitragen. Die Community bietet Unterstützung durch Foren, Mailinglisten und regelmäßige Meetups. Entwickler können sich
+Greet profitiert von einer wachsenden Community von Entwicklern, die zur Weiterentwicklung der Sprache beitragen. Die Community bietet Unterstützung durch Foren, Mailinglisten und regelmäßige Meetups. Entwickler können sich in der Greet-Community engagieren, indem sie an offenen Projekten mitarbeiten, Feedback geben oder eigene Erweiterungen und Bibliotheken beitragen. Die offizielle Greet-Website bietet eine umfassende Dokumentation, Tutorials und Beispielprojekte, die Entwicklern helfen, schnell mit Greet zu beginnen.
+
+11.3 Beiträge und Erweiterungen
+
+Greet ist eine offene Sprache, und Entwickler sind ermutigt, ihre eigenen Erweiterungen und Bibliotheken zu erstellen. Diese können dann in der Community geteilt und in zukünftige Versionen von Greet integriert werden. Einige Beispiele für mögliche Erweiterungen sind:
+- Maschinelles Lernen: Bibliotheken für maschinelles Lernen und künstliche Intelligenz.
+- Webentwicklung: Frameworks für die Erstellung von Webanwendungen.
+- Echtzeitanwendungen: Bibliotheken für die Entwicklung von Echtzeitanwendungen wie Finanzsysteme oder eingebettete Systeme.
+
+12. Schlusswort
+
+12.1 Zusammenfassung
+
+Greet ist eine innovative Programmiersprache, die die Stärken von C++ und Python kombiniert, um eine leistungsstarke, flexible und benutzerfreundliche Entwicklungsumgebung zu bieten. Mit ihrer einzigartigen Kombination aus Leistung, Einfachheit und Interoperabilität ist Greet gut positioniert, um in der modernen Softwareentwicklung eine bedeutende Rolle zu spielen. Die Sprache bietet Entwicklern die Möglichkeit, leistungsstarke Anwendungen zu erstellen, während sie gleichzeitig von der Einfachheit und Lesbarkeit von Python profitieren.
+
+12.2 Ausblick
+
+Die Zukunft von Greet sieht vielversprechend aus. Mit einer wachsenden Community, kontinuierlichen Verbesserungen und der Integration neuer Funktionen wird Greet weiterhin eine wichtige Rolle in der Softwareentwicklung spielen. Entwickler, die nach einer Sprache suchen, die sowohl Leistung als auch Benutzerfreundlichkeit bietet, finden in Greet eine ideale Wahl. Die Sprache wird sich weiterentwickeln und an die sich ändernden Anforderungen der Branche anpassen, um sicherzustellen, dass sie auch in Zukunft eine führende Position einnimmt.
