@@ -1,0 +1,208 @@
+1. Grundlegende Kontrollstrukturen
+1.1 Bedingungen
+greet
+x = 10
+y = 5
+
+if x > y:
+    print("x ist größer als y")
+elif x == y:
+    print("x ist gleich y")
+else:
+    print("x ist kleiner als y")
+1.2 Schleifen
+greet
+# For-Schleife
+for i in range(5):
+    print(i)
+
+# While-Schleife
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+2. Funktionen
+2.1 Einfache Funktion
+greet
+def greet(name: str) -> str:
+    return "Hallo, " + name + "!"
+
+message = greet("Alice")
+print(message)
+2.2 Funktion mit mehreren Parametern
+greet
+def add(a: int, b: int) -> int:
+    return a + b
+
+result = add(5, 3)
+print(result)
+3. Klassen und Objekte
+3.1 Klasse und Objekt
+greet
+class Person:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+
+    def greet(self) -> str:
+        return "Hallo, ich bin " + self.name
+
+alice = Person("Alice", 30)
+print(alice.greet())
+3.2 Vererbung
+greet
+class Student(Person):
+    def __init__(self, name: str, age: int, student_id: str):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def show_id(self) -> str:
+        return "Meine Studentennummer ist " + self.student_id
+
+bob = Student("Bob", 20, "S12345")
+print(bob.greet())
+print(bob.show_id())
+4. Module und Pakete
+4.1 Importieren eines Moduls
+greet
+import math
+
+print(math.sqrt(16))  # Ausgabe: 4.0
+4.2 Erstellen eines eigenen Moduls
+Erstelle eine Datei namens my_module.grt:
+
+greet
+# my_module.grt
+
+def square(x: int) -> int:
+    return x * x
+
+def cube(x: int) -> int:
+    return x * x * x
+Importiere und verwende das Modul in einer anderen Datei:
+
+greet
+import my_module
+
+print(my_module.square(4))  # Ausgabe: 16
+print(my_module.cube(3))    # Ausgabe: 27
+5. Fehlerbehandlung
+5.1 Try-Except-Block
+greet
+try:
+    x = 10 / 0
+except ZeroDivisionError as e:
+    print("Fehler:", e)
+5.2 Benutzerdefinierte Ausnahmen
+greet
+class MyError(Exception):
+    pass
+
+def check_age(age: int):
+    if age < 0:
+        raise MyError("Alter kann nicht negativ sein")
+
+try:
+    check_age(-1)
+except MyError as e:
+    print("Fehler:", e)
+6. Dateioperationen
+6.1 Lesen und Schreiben von Dateien
+greet
+# Lesen einer Datei
+def read_file(file_path: str) -> str:
+    with open(file_path, 'r') as file:
+        return file.read()
+
+# Schreiben in eine Datei
+def write_file(file_path: str, content: str):
+    with open(file_path, 'w') as file:
+        file.write(content)
+
+file_path = "example.txt"
+content = read_file(file_path)
+print(content)
+
+new_content = "Hallo, Welt!"
+write_file(file_path, new_content)
+7. Netzwerkprogrammierung
+7.1 Einfacher HTTP-Client
+greet
+import requests
+
+response = requests.get("https://api.example.com/data")
+print(response.json())
+8. Multithreading
+8.1 Erstellen und Starten von Threads
+greet
+import threading
+
+def print_numbers():
+    for i in range(5):
+        print(i)
+
+def print_letters():
+    for letter in 'abcde':
+        print(letter)
+
+thread1 = threading.Thread(target=print_numbers)
+thread2 = threading.Thread(target=print_letters)
+
+thread1.start()
+thread2.start()
+
+thread1.join()
+thread2.join()
+9. Datenstrukturen
+9.1 Listen
+greet
+numbers = [1, 2, 3, 4, 5]
+print(numbers[0])  # Ausgabe: 1
+numbers.append(6)
+print(numbers)    # Ausgabe: [1, 2, 3, 4, 5, 6]
+9.2 Wörterbücher
+greet
+person = {"name": "Alice", "age": 30}
+print(person["name"])  # Ausgabe: Alice
+person["city"] = "Wonderland"
+print(person)         # Ausgabe: {'name': 'Alice', 'age': 30, 'city': 'Wonderland'}
+10. Generatoren
+10.1 Einfacher Generator
+greet
+def count_up_to(max: int):
+    count = 1
+    while count <= max:
+        yield count
+        count += 1
+
+for number in count_up_to(5):
+    print(number)
+11. Dekoratoren
+11.1 Einfacher Dekorator
+greet
+def my_decorator(func):
+    def wrapper():
+        print("Vor der Funktion")
+        func()
+        print("Nach der Funktion")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hallo, Welt!")
+
+say_hello()
+12. Kontextmanager
+12.1 Benutzerdefinierter Kontextmanager
+greet
+class MyContextManager:
+    def __enter__(self):
+        print("Eintritt in den Kontext")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Verlassen des Kontexts")
+
+with MyContextManager() as manager:
+    print("Innerhalb des Kontexts")
+Diese Beispiele zeigen, wie man Greet-Code schreiben kann, um verschiedene Aufgaben zu erfüllen. Greet kombiniert die Leistung und Kontrolle von C++ mit der Einfachheit und Lesbarkeit von Python, was es zu einer vielseitigen und leistungsstarken Programmiersprache macht.
